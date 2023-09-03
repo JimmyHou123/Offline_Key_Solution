@@ -37,5 +37,38 @@ Before using `generateTOTP` and `verifyTOTP`, you'll need the following:
 3. Compile the programs using a C++ compiler. For example, you can use `g++`:
 
    ```bash
-   g++ -std=c++11 generateTOTP.cpp -o generateTOTP -lcrypto
-   g++ -std=c++11 verifyTOTP.cpp -o verifyTOTP -lcrypto
+   g++ -std=c++11 generateTOTP_main.cpp -o generateTOTP -lcrypto
+   g++ -std=c++11 verifyTOTP_main.cpp -o verifyTOTP -lcrypto
+
+## Usage
+
+1. `generateTOTP` generates TOTP tokens based on a shared secret key. You can run the program by `./generateTOTP` and follow the instruction. Normally, secret key is the ID of the smart lock.
+
+2. `verifyTOTP` verifies TOTP tokens for authentication. It can be used to verify tokens provided by users during the authentication process. You can run the program by "./verifyTOTP" and follow the instruction. Normally, authentication password is the initial password.
+
+## Example
+
+./generateTOTP
+Choose a time step option:
+1. 1 minute
+2. 15 minutes
+3. 1 hour
+4. 12 hours
+5. 24 hours
+2
+Dynamic Password with 15 minutes time step: 7627
+
+./verifyTOTP
+Choose a time step option:
+1. 1 minute
+2. 15 minutes
+3. 1 hour
+4. 12 hours
+5. 24 hours
+2
+Enter the password to verify: 7627
+Password is valid.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
